@@ -19,6 +19,14 @@ public class HtmlBlogg extends Blogg {
 	@Override
 	public String toString() {
 
-		return null;
+		String html = HTMLPREFIX;
+
+		for (int i = 0; i < getAntall(); i++) {
+			html += getSamling()[i].toHTML();
+		}
+
+		html += HTMLPOSTFIX;
+
+		return html;
 	}
 }
