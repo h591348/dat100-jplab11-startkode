@@ -27,7 +27,7 @@ public class LesBlogg {
 		Blogg blogg = null;
 		File fil = new File( mappe + filnavn);
 
-		try (Scanner leser = new Scanner(fil) ) { //TODO leser hopper over flere linjer av og til🤔
+		try (Scanner leser = new Scanner(fil) ) {
 			int antallInnlegg = Integer.parseInt(leser.nextLine() ); //Henter antall innlegg på første linje
 			blogg = new Blogg(antallInnlegg);
 
