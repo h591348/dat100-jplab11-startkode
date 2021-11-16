@@ -2,49 +2,85 @@ package no.hvl.dat100.jplab11.oppgave3;
 
 import no.hvl.dat100.jplab11.common.TODO;
 import no.hvl.dat100.jplab11.oppgave1.*;
+import no.hvl.dat100.jplab11.oppgave2.Tekst;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+	private Innlegg[] innleggTabell;
+	private int nesteledig;
+
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		innleggTabell = new Innlegg[20];
+		nesteledig = 0;
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		innleggTabell = new Innlegg[lengde];
+		nesteledig = 0;
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		return nesteledig;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
+		return innleggTabell;
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
+		if (finnes(innlegg)){
+			for (int i = 0; i < nesteledig; i++) {
+				if (innleggTabell[i].erLik(innlegg)){
+					return i;
+				}
 
-		throw new UnsupportedOperationException(TODO.method());
+			}
+		}
+
+		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		if (nesteledig>0){
+			for (int i = 0; i < nesteledig; i++) {
+				if (innleggTabell[i].erLik(innlegg)){
+					return true;
+				}
+				
+			}
+		}
+		return false;
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		if (nesteledig<innleggTabell.length){
+			return true;
+		}
+return false;
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+
+		if (ledigPlass() && !finnes(innlegg) ){
+			innleggTabell[nesteledig] = innlegg;
+			nesteledig++;
+			return true;
+		}
+
+return false;
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String s ="";
+		if (nesteledig>0) {
+			for (int i = 0; i < nesteledig; i++) {
+				s+=innleggTabell[i];
+			}
+		}
+		return nesteledig + "\n" + s;
 	}
 
 	// valgfrie oppgaver nedenfor
