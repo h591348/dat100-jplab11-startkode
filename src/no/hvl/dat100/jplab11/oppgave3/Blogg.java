@@ -1,13 +1,11 @@
 package no.hvl.dat100.jplab11.oppgave3;
 
-import no.hvl.dat100.jplab11.common.TODO;
 import no.hvl.dat100.jplab11.oppgave1.*;
 
 public class Blogg {
 
 	private Innlegg[] innleggTabell;
 	private int nesteLedig;
-
 
 	public Blogg() {
 		innleggTabell = new Innlegg[20];
@@ -25,26 +23,23 @@ public class Blogg {
 	
 	public Innlegg[] getSamling() {
 		return innleggTabell;
-
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-		if (finnes(innlegg)){
+		if (finnes(innlegg) ){
 			for (int i = 0; i < nesteLedig; i++) {
-				if (innleggTabell[i].erLik(innlegg)){
+				if (innleggTabell[i].erLik(innlegg) ){
 					return i;
 				}
-
 			}
 		}
-
 		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		if (nesteLedig >0){
+		if (nesteLedig > 0) {
 			for (int i = 0; i < nesteLedig; i++) {
-				if (innleggTabell[i].erLik(innlegg)){
+				if (innleggTabell[i].erLik(innlegg) ){
 					return true;
 				}
 				
@@ -54,14 +49,10 @@ public class Blogg {
 	}
 
 	public boolean ledigPlass() {
-		if (nesteLedig <innleggTabell.length){
-			return true;
-		}
-return false;
+		return nesteLedig < innleggTabell.length;
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
-
 
 		if (ledigPlass() && !finnes(innlegg) ){
 			innleggTabell[nesteLedig] = innlegg;
@@ -73,10 +64,10 @@ return false;
 	}
 	
 	public String toString() {
-		String s ="";
-		if (nesteLedig >0) {
+		String s = "";
+		if (nesteLedig > 0) {
 			for (int i = 0; i < nesteLedig; i++) {
-				s +=innleggTabell[i];
+				s += innleggTabell[i];
 			}
 		}
 		return nesteLedig + "\n" + s;

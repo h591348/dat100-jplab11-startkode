@@ -28,7 +28,5 @@ class TestHtmlBlogg {
 		samling.leggTil(innlegg2);
 		
 		assertTrue(SkrivBlogg.skriv(samling, MAPPE, FILNAVN));
-
-		System.out.println(samling);
 	}	
 }

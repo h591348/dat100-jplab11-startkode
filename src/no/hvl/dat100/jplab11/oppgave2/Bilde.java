@@ -1,7 +1,5 @@
 package no.hvl.dat100.jplab11.oppgave2;
 
-import no.hvl.dat100.jplab11.common.TODO;
-
 public class Bilde extends Tekst {
 
 	private String url;
@@ -28,17 +26,21 @@ public class Bilde extends Tekst {
 	@Override
 	public String toString() {
 
-		return "BILDE" + '\n' + getId() + '\n' + getBruker() + '\n' + getDato() + '\n' + getLikes() + '\n' + getTekst() + '\n' + url + '\n';
-
+		return "BILDE" + '\n' +
+				getId() + '\n' +
+				getBruker() + '\n' +
+				getDato() + '\n' +
+				getLikes() + '\n' +
+				getTekst() + '\n'
+				+ url + '\n';
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
+	@Override
 	public String toHTML() {
 		
 		return "\t\t<hr>\n" +
-				"\t\t<h2>" + getBruker() + '@' + getDato() + " [" + getLikes() + ']' + "</h2>\n" +
-				"\t\t<p>" + getTekst() + "<p>\n" +
+				super.toHTML() +
 				"\t\t<iframe src=\"" + getUrl() + "\" height=600 width=800></iframe><hr>\n";
-				
 	}
 }
