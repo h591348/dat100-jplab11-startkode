@@ -8,6 +8,8 @@ import java.util.Scanner;
 import no.hvl.dat100.jplab11.oppgave2.*;
 import no.hvl.dat100.jplab11.oppgave3.*;
 
+	//Mye rot her, lykke til!
+
 public class LesBlogg {
 
 	private static int i = 0;
@@ -77,9 +79,8 @@ public class LesBlogg {
 		String bruker = leser.nextLine();
 		String dato = leser.nextLine();
 		int liker = Integer.parseInt(leser.nextLine() );
-		String tekst = "";
 
-		tekst += leser.nextLine();
+		String tekst = leser.nextLine();
 		String url = leser.nextLine();
 		blogg.leggTil(new Bilde(id, bruker, dato, liker, tekst, url) );
 	}
